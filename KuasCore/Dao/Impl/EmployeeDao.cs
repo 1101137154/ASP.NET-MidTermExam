@@ -77,7 +77,7 @@ namespace KuasCore.Dao.Impl
 
         public IList<Employee> GetEmployeeByName(string name)
         {
-            string command = @"SELECT * FROM Employee WHERE Id LIKE @name";
+            string command = @"SELECT * FROM Employee WHERE name LIKE @name";
 
             IDbParameters parameters = CreateDbParameters();
             parameters.Add("name", DbType.String).Value = name;
