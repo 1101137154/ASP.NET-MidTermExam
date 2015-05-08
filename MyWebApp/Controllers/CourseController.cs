@@ -13,50 +13,50 @@ namespace MyWebApp.Controllers
     {
         public ICourseService CourseService { get; set; }
 
-        //[HttpPost]
-        //public Course AddCourse(Course course)
-        //{
-        //    CheckCourseIsNotNullThrowException(course);
+        [HttpPost]
+        public Course AddCourse(Course course)
+        {
+            CheckCourseIsNotNullThrowException(course);
 
-        //    try
-        //    {
-        //        CourseService.AddCourse(course);
-        //        return CourseService.GetCourseById(course.CourseID);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw new HttpResponseException(HttpStatusCode.InternalServerError);
-        //    }
-        //}
+            try
+            {
+                CourseService.AddCourse(course);
+                return CourseService.GetCourseById(course.CourseID);
+            }
+            catch (Exception)
+            {
+                throw new HttpResponseException(HttpStatusCode.InternalServerError);
+            }
+        }
 
-        //[HttpPut]
-        //public Course UpdateCourse(Course course)
-        //{
-        //    CheckCourseIsNullThrowException(course);
+        [HttpPut]
+        public Course UpdateCourse(Course course)
+        {
+            CheckCourseIsNullThrowException(course);
 
-        //    try
-        //    {
-        //        CourseService.UpdateCourse(course);
-        //        return CourseService.GetCourseById(course.CourseID);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw new HttpResponseException(HttpStatusCode.InternalServerError);
-        //    }
-        //}
+            try
+            {
+                CourseService.UpdateCourse(course);
+                return CourseService.GetCourseById(course.CourseID);
+            }
+            catch (Exception)
+            {
+                throw new HttpResponseException(HttpStatusCode.InternalServerError);
+            }
+        }
 
-        //[HttpDelete]
-        //public void DeleteCourse(Course course)
-        //{
-        //    try
-        //    {
-        //        CourseService.DeleteCourse(course);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw new HttpResponseException(HttpStatusCode.InternalServerError);
-        //    }
-        //}
+        [HttpDelete]
+        public void DeleteCourse(Course course)
+        {
+            try
+            {
+                CourseService.DeleteCourse(course);
+            }
+            catch (Exception)
+            {
+                throw new HttpResponseException(HttpStatusCode.InternalServerError);
+            }
+        }
 
         [HttpGet]
         public IList<Course> GetAllCourses()
