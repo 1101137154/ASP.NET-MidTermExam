@@ -8,7 +8,7 @@ namespace KuasCore.Services
     /// <summary>
     ///     員工資料維護的 Service.
     /// </summary>
-    public interface IEmployeeService
+    public interface ICourseService
     {
 
         /// <summary>
@@ -17,7 +17,7 @@ namespace KuasCore.Services
         /// <param name="employee">
         ///     員工資料.
         /// </param>
-        void AddEmployee(Employee employee);
+        void AddCourse(Course course);
 
         /// <summary>
         ///     修改員工資料.
@@ -25,7 +25,7 @@ namespace KuasCore.Services
         /// <param name="employee">
         ///     員工資料.
         /// </param>
-        void UpdateEmployee(Employee employee);
+        void UpdateCourse(Course course);
 
         /// <summary>
         ///     刪除員工資料.
@@ -33,7 +33,7 @@ namespace KuasCore.Services
         /// <param name="employee">
         ///     員工資料.
         /// </param>
-        void DeleteEmployee(Employee employee);
+        void DeleteCourse(Course course);
 
         /// <summary>
         ///     取得所有員工資料.
@@ -41,7 +41,7 @@ namespace KuasCore.Services
         /// <returns>
         ///     所有員工資料.
         /// </returns>
-        IList<Employee> GetAllEmployees();
+        IList<Course> GetAllCourses();
 
         /// <summary>
         ///     依據 ID 取得員工資料.
@@ -52,8 +52,8 @@ namespace KuasCore.Services
         /// <returns>
         ///     該員工資料.
         /// </returns>
-        Employee GetEmployeeById(string id);
+        Course GetCourseById(string id);
 
-        IList<Employee> GetEmployeeByName(string name);
+        IList<Course> GetCourseByName(string name);
     }
 }

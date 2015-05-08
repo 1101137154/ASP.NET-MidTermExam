@@ -99,8 +99,6 @@
     <Compile Include="Core\ObjectFactoryUnitTest.cs" />
     <Compile Include="Dao\EmpolyeeDaoUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Impl\ITxEmployeeServiceIntegrationTest.cs" />
-    <Compile Include="Services\Impl\CompanyServiceUnitTest.cs" />
     <Compile Include="Services\Impl\EmployeeServiceUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>

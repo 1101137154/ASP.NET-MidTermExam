@@ -29,28 +29,28 @@ namespace KuasCoreTests.Dao
 
         #endregion
 
-        public IEmployeeDao EmployeeDao { get; set; }
+        public ICourseDao EmployeeDao { get; set; }
 
 
         [TestMethod]
         public void TestEmployeeDao_AddEmployee()
         {
-            Employee employee = new Employee();
-            employee.Id = "UnitTests";
-            employee.Name = "單元測試";
-            employee.Age = 15;
-            EmployeeDao.AddEmployee(employee);
+            Course employee = new Course();
+            employee.CourseID = "UnitTests";
+            employee.CourseName = "單元測試";
+            employee.CourseDescription = "desc";
+            EmployeeDao.AddCourse(employee);
 
-            Employee dbEmployee = EmployeeDao.GetEmployeeById(employee.Id);
+            Course dbEmployee = EmployeeDao.GetCourseById(employee.CourseID);
             Assert.IsNotNull(dbEmployee);
-            Assert.AreEqual(employee.Id, dbEmployee.Id);
+            Assert.AreEqual(employee.CourseID, dbEmployee.CourseID);
 
-            Console.WriteLine("員工編號為 = " + dbEmployee.Id);
-            Console.WriteLine("員工姓名為 = " + dbEmployee.Name);
-            Console.WriteLine("員工年齡為 = " + dbEmployee.Age);
+            Console.WriteLine("員工編號為 = " + dbEmployee.CourseID);
+            Console.WriteLine("員工姓名為 = " + dbEmployee.CourseName);
+            Console.WriteLine("員工DESC為 = " + dbEmployee.CourseDescription);
 
-            EmployeeDao.DeleteEmployee(dbEmployee);
-            dbEmployee = EmployeeDao.GetEmployeeById(employee.Id);
+            EmployeeDao.DeleteCourse(dbEmployee);
+            dbEmployee = EmployeeDao.GetCourseById(employee.CourseID);
             Assert.IsNull(dbEmployee);
         }
 
@@ -58,64 +58,64 @@ namespace KuasCoreTests.Dao
         public void TestEmployeeDao_UpdateEmployee()
         {
             // 取得資料
-            Employee employee = EmployeeDao.GetEmployeeById("dennis_yen");
+            Course employee = EmployeeDao.GetCourseById("dennis_yen");
             Assert.IsNotNull(employee);
             
             // 更新資料
-            employee.Name = "單元測試";
-            EmployeeDao.UpdateEmployee(employee);
+            employee.CourseName = "單元測試";
+            EmployeeDao.UpdateCourse(employee);
 
             // 再次取得資料
-            Employee dbEmployee = EmployeeDao.GetEmployeeById(employee.Id);
+            Course dbEmployee = EmployeeDao.GetCourseById(employee.CourseID);
             Assert.IsNotNull(dbEmployee);
-            Assert.AreEqual(employee.Name, dbEmployee.Name);
-            
-            Console.WriteLine("員工編號為 = " + dbEmployee.Id);
-            Console.WriteLine("員工姓名為 = " + dbEmployee.Name);
-            Console.WriteLine("員工年齡為 = " + dbEmployee.Age);
+            Assert.AreEqual(employee.CourseName, dbEmployee.CourseName);
+
+            Console.WriteLine("員工編號為 = " + dbEmployee.CourseID);
+            Console.WriteLine("員工姓名為 = " + dbEmployee.CourseName);
+            Console.WriteLine("員工DESC為 = " + dbEmployee.CourseDescription);
 
             Console.WriteLine("================================");
 
             // 將資料改回來
-            employee.Name = "嚴志和";
-            EmployeeDao.UpdateEmployee(employee);
+            employee.CourseName = "嚴志和";
+            EmployeeDao.UpdateCourse(employee);
 
             // 再次取得資料
-            dbEmployee = EmployeeDao.GetEmployeeById(employee.Id);
+            dbEmployee = EmployeeDao.GetCourseById(employee.CourseID);
             Assert.IsNotNull(dbEmployee);
-            Assert.AreEqual(employee.Name, dbEmployee.Name);
+            Assert.AreEqual(employee.CourseName, dbEmployee.CourseName);
 
-            Console.WriteLine("員工編號為 = " + dbEmployee.Id);
-            Console.WriteLine("員工姓名為 = " + dbEmployee.Name);
-            Console.WriteLine("員工年齡為 = " + dbEmployee.Age);
+            Console.WriteLine("員工編號為 = " + dbEmployee.CourseID);
+            Console.WriteLine("員工姓名為 = " + dbEmployee.CourseName);
+            Console.WriteLine("員工DESC為 = " + dbEmployee.CourseDescription);
         }
 
 
         [TestMethod]
         public void TestEmployeeDao_DeleteEmployee()
         {
-            Employee newEmployee = new Employee();
-            newEmployee.Id = "UnitTests";
-            newEmployee.Name = "單元測試";
-            newEmployee.Age = 15;
-            EmployeeDao.AddEmployee(newEmployee);
+            Course newEmployee = new Course();
+            newEmployee.CourseID = "UnitTests";
+            newEmployee.CourseName = "單元測試";
+            newEmployee.CourseDescription = "desc";
+            EmployeeDao.AddCourse(newEmployee);
 
-            Employee dbEmployee = EmployeeDao.GetEmployeeById(newEmployee.Id);
+            Course dbEmployee = EmployeeDao.GetCourseById(newEmployee.CourseID);
             Assert.IsNotNull(dbEmployee);
 
-            EmployeeDao.DeleteEmployee(dbEmployee);
-            dbEmployee = EmployeeDao.GetEmployeeById(newEmployee.Id);
+            EmployeeDao.DeleteCourse(dbEmployee);
+            dbEmployee = EmployeeDao.GetCourseById(newEmployee.CourseID);
             Assert.IsNull(dbEmployee);
         }
 
         [TestMethod]
         public void TestEmployeeDao_GetEmployeeById()
         {
-            Employee employee = EmployeeDao.GetEmployeeById("dennis_yen");
+            Course employee = EmployeeDao.GetCourseById("dennis_yen");
             Assert.IsNotNull(employee);
-            Console.WriteLine("員工編號為 = " + employee.Id);
-            Console.WriteLine("員工姓名為 = " + employee.Name);
-            Console.WriteLine("員工年齡為 = " + employee.Age);
+            Console.WriteLine("員工編號為 = " + employee.CourseID);
+            Console.WriteLine("員工姓名為 = " + employee.CourseName);
+            Console.WriteLine("員工DESC為 = " + employee.CourseDescription);
         }
 
     }

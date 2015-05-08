@@ -16,11 +16,11 @@ namespace KuasCore.Interceptors
 
             object result = invocation.Proceed();
 
-            if (result is Employee)
+            if (result is Course)
             {
-                Employee employee = (Employee)result;
-                employee.Name = employee.Name + " 上面偷偷加東西";
-                result = employee;
+                Course courses = (Course)result;
+                courses.CourseName = courses.CourseName + " 上面偷偷加東西";
+                result = courses;
             }
 
             return result;
