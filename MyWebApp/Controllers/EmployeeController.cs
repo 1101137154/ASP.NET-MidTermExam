@@ -11,19 +11,21 @@ namespace MyWebApp.Controllers
 {
     public class EmployeeController : ApiController
     {
-        public IEmployeeService EmployeeService { get; set; }
+        public ICourseService CourseService { get; set; }
+
+
 
         [HttpGet]
-        public IList<Employee> GetAllEmployees()
+        public IList<Course> GetAllCourses()
         {
-            return EmployeeService.GetAllEmployees();
+            return CourseService.GetAllCourses();
         }
 
         [HttpGet]
         [ActionName("byId")]
-        public Employee GetEmployeeById(string id)
+        public Course GetCourseById(string id)
         {
-            var employee = EmployeeService.GetEmployeeById(id);
+            var employee = CourseService.GetCourseById(id);
 
             if (employee == null)
             {
@@ -35,9 +37,9 @@ namespace MyWebApp.Controllers
 
         [HttpGet]
         [ActionName("byname")]
-        public IList<Employee> GetEmployeeByName(string id)
+        public IList<Course> GetCourseByName(string id)
         {
-            var employees = EmployeeService.GetEmployeeByName(id);
+            var employees = CourseService.GetCourseByName(id);
 
             if (employees == null)
             {
